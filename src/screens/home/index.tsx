@@ -5,6 +5,9 @@ import { getUser } from '@redux/actions/user';
 import { View, ActivityIndicator, Image, Text } from 'react-native';
 import { UserStateType } from '@constants/user';
 
+import styles from './style';
+import { apply } from '@theme';
+
 const Home = (props: any) => {
   const { user }: { user: UserStateType } = props;
   const result = user.data?.results?.[0];
@@ -15,14 +18,14 @@ const Home = (props: any) => {
   }, []);
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       {user.loading ? (
         <ActivityIndicator />
       ) : (
         <>
           <Image
             source={{ uri: result?.picture?.medium }}
-            style={{ width: 40, height: 40 }}
+            style={apply('w-40 h-40')}
           />
           <Text>Name: {name}</Text>
           <Text>Age: {result?.dob?.age}</Text>
