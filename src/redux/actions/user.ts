@@ -1,9 +1,9 @@
 import api from '@config/api';
-import { ActionDispatch } from '@constants/type';
 import { types, UserResult } from '@constants/user';
+import { AppDispatch } from '@redux/store';
 
 export const getUser = () => {
-  return (dispatch: (arg: ActionDispatch) => ActionDispatch) => {
+  return (dispatch: AppDispatch) => {
     dispatch({ type: types.GET_USER_REQUEST });
     api
       .getUser()

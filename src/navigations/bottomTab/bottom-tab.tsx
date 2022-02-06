@@ -3,7 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from '@screens/home';
 
-const Tab = createBottomTabNavigator();
+export type TabParamList = {
+  Home: undefined;
+};
+
+const Tab = createBottomTabNavigator<TabParamList>();
 
 export const MainBottomTab = () => {
   return (

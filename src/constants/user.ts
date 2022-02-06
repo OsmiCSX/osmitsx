@@ -70,5 +70,10 @@ export interface UserResult {
 export interface UserStateType {
   loading: boolean;
   error: any;
-  data: UserResult | null;
+  data?: UserResult | null;
 }
+
+export type GetUserDispatch = {
+  type: string;
+  payload?: UserResult;
+};

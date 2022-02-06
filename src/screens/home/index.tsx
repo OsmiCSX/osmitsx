@@ -1,15 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { FC, useEffect } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '@redux/store';
 import { getUser } from '@redux/actions/user';
 import { View, ActivityIndicator, Image, Text } from 'react-native';
-import { UserStateType } from '@constants/user';
+
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import { TabParamList } from '@navigations/bottomTab';
 
 import styles from './style';
 import { apply } from '@theme';
 
-const Home = (props: any) => {
-  const { user }: { user: UserStateType } = props;
+const Home: Props = props => {
+  const { user } = props;
   const result = user.data?.results?.[0];
   const name = `${result?.name?.title}. ${result?.name?.first} ${result?.name?.last}`;
 
@@ -38,12 +41,17 @@ const Home = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: RootState) => ({
   user: state.user,
 });
 
-const mapDispatchToProps = (dispatch: Function) => ({
+const mapDispatchToProps = (dispatch: any) => ({
   getUser: () => dispatch(getUser()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = FC<BottomTabScreenProps<TabParamList, 'Home'> & PropsFromRedux>;
+
+export default connector(Home);

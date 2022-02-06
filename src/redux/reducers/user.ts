@@ -1,5 +1,4 @@
-import { ActionDispatch } from '@constants/type';
-import { types, UserStateType } from '@constants/user';
+import { types, UserStateType, GetUserDispatch } from '@constants/user';
 
 const initialState: UserStateType = {
   loading: false,
@@ -7,7 +6,7 @@ const initialState: UserStateType = {
   data: null,
 };
 
-const user = (state = initialState, action: ActionDispatch) => {
+const user = (state = initialState, action: GetUserDispatch): UserStateType => {
   switch (action.type) {
     case types.GET_USER_REQUEST:
       return {

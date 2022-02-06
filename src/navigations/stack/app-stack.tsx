@@ -6,10 +6,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { MainBottomTab } from '../bottomTab';
 import HomeScreen from '@screens/home';
 
+export type AppParamList = {
+  Main: undefined;
+  Home: undefined;
+};
+
 const createStackNav =
   Platform.OS === 'ios' ? createNativeStackNavigator : createStackNavigator;
 
-const Stack = createStackNav();
+const Stack = createStackNav<AppParamList>();
 
 export const AppStack = () => {
   return (
