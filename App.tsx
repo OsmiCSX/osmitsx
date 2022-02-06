@@ -2,8 +2,8 @@ import React from 'react';
 
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import { store, persistor } from '@redux/store';
-import Home from './src';
+import { store, persistor } from './src/redux/store';
+import Home from '@screens/Home';
 
 const App = () => {
   return (

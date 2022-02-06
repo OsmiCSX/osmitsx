@@ -21,7 +21,7 @@
     "resolveJsonModule": true,
     "baseUrl": "./",
     "paths": {
-      "@assets/*": ["./assets/*"],
+      "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./src/config/*"],
       "@locales": ["./src/locales"],
