@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from "react"
-import { View, ActivityIndicator } from "react-native"
+import { ActivityIndicator, View, Text } from "react-native"
 import { RootStackScreenProps } from "@navigations/stack/types"
 import { useCharacters } from "@stores"
 
@@ -7,7 +7,7 @@ import styles from "./style"
 import { apply } from "@theme"
 
 const Home: FC<RootStackScreenProps<"Main">> = () => {
-  const { fetching, data, getCharacters } = useCharacters()
+  const { fetching, getCharacters } = useCharacters()
 
   useEffect(() => {
     ;(async () => {
@@ -15,10 +15,9 @@ const Home: FC<RootStackScreenProps<"Main">> = () => {
     })()
   }, [])
 
-  console.log("data =>", data)
-
   return (
     <View style={styles.container}>
+      <Text>Hello World!</Text>
       {fetching && <ActivityIndicator color={apply("red-500")} />}
     </View>
   )

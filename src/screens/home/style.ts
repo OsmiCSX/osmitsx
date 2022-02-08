@@ -1,10 +1,5 @@
-import { connect } from '@theme';
-import { ViewStyle } from 'react-native';
+import { connect } from "@theme"
 
-type Style = {
-  container: ViewStyle;
-};
-
-export default connect<Style>({
-  container: 'flex items-center justify-center bg-white',
-});
+export default connect({
+  container: "flex items-center justify-center bg-white",
+})

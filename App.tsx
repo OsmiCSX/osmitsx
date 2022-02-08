@@ -3,10 +3,12 @@ import "@utils/ignore-warning"
 import { loadString } from "@utils/storage"
 import { setI18nConfig } from "@locales"
 import { useAtom } from "jotai"
-import NetworkLogger from "react-native-network-logger"
 import Config from "react-native-config"
 import { apiConfig, isAppReady } from "@stores/config"
 import { Environment } from "@config/environment"
+
+// Components
+import { NetworkLog } from "@components/organism/network-log"
 
 // Navigation
 import { NavigationContainer } from "@react-navigation/native"
@@ -34,7 +36,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <AppStack />
-      {Config.SHOW_NETWORK_LOGGER && <NetworkLogger />}
+      {Config.SHOW_NETWORK_LOGGER && <NetworkLog />}
     </NavigationContainer>
   )
 }
