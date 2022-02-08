@@ -1,9 +1,3 @@
-export enum types {
-  GET_USER_REQUEST = 'GET_USER_REQUEST',
-  GET_USER_SUCCESS = 'GET_USER_SUCCESS',
-  GET_USER_FAILURE = 'GET_USER_FAILURE',
-}
-
 export interface IUser {
   gender: string;
   name: {
@@ -66,14 +60,3 @@ export interface UserResult {
     version: string;
   };
 }
-
-export interface UserStateType {
-  loading: boolean;
-  error: any;
-  data?: UserResult | null;
-}
-
-export type GetUserDispatch = {
-  type: string;
-  payload?: UserResult;
-};
