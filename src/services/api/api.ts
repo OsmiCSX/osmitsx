@@ -1,23 +1,23 @@
-import Config from 'react-native-config';
-import { loadString } from '@utils/storage';
-import { ApisauceInstance, create } from 'apisauce';
+import Config from "react-native-config"
+import { loadString } from "@utils/storage"
+import { ApisauceInstance, create } from "apisauce"
 
 export interface ApiConfig {
-  url: string;
-  timeout: number;
+  url: string
+  timeout: number
 }
 
 export const DEFAULT_API_CONFIG: ApiConfig = {
   url: Config.BASE_URL,
   timeout: 30000, // miliseconds
-};
+}
 
 export class Api {
-  apisauce!: ApisauceInstance;
-  config: ApiConfig;
+  apisauce!: ApisauceInstance
+  config: ApiConfig
 
   constructor(config: ApiConfig = DEFAULT_API_CONFIG) {
-    this.config = config;
+    this.config = config
   }
 
   setup() {
@@ -26,17 +26,15 @@ export class Api {
       baseURL: this.config.url,
       timeout: this.config.timeout,
       headers: {
-        Accept: 'application/json',
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
       },
-    });
+    })
 
-    this.apisauce.addAsyncRequestTransform(request => async () => {
-      const authKey = await loadString('bearer_token');
+    this.apisauce.addAsyncRequestTransform((request) => async () => {
+      const authKey = await loadString("bearer_token")
       if (authKey) {
-        request.headers.Authorization = 'Bearer ' + authKey;
+        request.headers.Authorization = "Bearer " + authKey
       }
-    });
+    })
   }
 }

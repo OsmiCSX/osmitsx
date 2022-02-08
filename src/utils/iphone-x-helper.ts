@@ -22,7 +22,7 @@ export function isIphoneX(): boolean {
   );
 }
 
-export function ifIphoneX<T, U>(iphoneXStyle: T, regularStyle: U): T | U {
+function ifIphoneX<T, U>(iphoneXStyle: T, regularStyle: U): T | U {
   if (isIphoneX()) {
     return iphoneXStyle;
   }

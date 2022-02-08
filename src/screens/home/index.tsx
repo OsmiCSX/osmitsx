@@ -1,29 +1,27 @@
-import React, { FC, useEffect } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import React, { FC, useEffect } from "react"
+import { View, ActivityIndicator } from "react-native"
+import { RootStackScreenProps } from "@navigations/stack/types"
+import { useCharacters } from "@stores"
 
-import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
-import { TabParamList } from '@navigations/bottomTab';
+import styles from "./style"
+import { apply } from "@theme"
 
-import styles from './style';
-import { apply } from '@theme';
-import { useGetUser } from '@stores';
-
-type Props = FC<BottomTabScreenProps<TabParamList, 'Home'>>;
-
-const Home: Props = () => {
-  const { fetching, data, getUser } = useGetUser();
+const Home: FC<RootStackScreenProps<"Main">> = () => {
+  const { fetching, data, getCharacters } = useCharacters()
 
   useEffect(() => {
-    getUser();
-  }, []);
+    ;(async () => {
+      await getCharacters()
+    })()
+  }, [])
 
-  console.log(data);
+  console.log("data =>", data)
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator color={apply('red-500')} />
+      {fetching && <ActivityIndicator color={apply("red-500")} />}
     </View>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

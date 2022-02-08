@@ -1,6 +1,6 @@
 import { GeneralApiProblem } from './api-problem';
-import { UserResult } from '@stores/user/types';
+import { Character } from '@stores/character/types';
 
-export type GetUsersResult =
-  | { kind: 'ok'; data: UserResult }
+export type GetCharactersResult =
+  | { kind: 'ok'; data: Character[] }
   | GeneralApiProblem;

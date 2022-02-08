@@ -1,27 +1,21 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react"
+import { Platform } from "react-native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { createStackNavigator } from "@react-navigation/stack"
+import { AppParamList } from "./types"
 
-import { MainBottomTab } from '../bottomTab';
-import HomeScreen from '@screens/home';
+import HomeScreen from "@screens/home"
 
-export type AppParamList = {
-  Main: undefined;
-  Home: undefined;
-};
+const createStackNav = Platform.OS === "ios" ? createNativeStackNavigator : createStackNavigator
 
-const createStackNav =
-  Platform.OS === 'ios' ? createNativeStackNavigator : createStackNavigator;
-
-const Stack = createStackNav<AppParamList>();
+const Stack = createStackNav<AppParamList>()
 
 export const AppStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="Main"
       screenOptions={{
-        headerTitleAlign: 'center',
+        headerTitleAlign: "center",
         cardOverlayEnabled: false,
         cardStyleInterpolator: ({ current, layouts }) => ({
           cardStyle: {
@@ -35,13 +29,9 @@ export const AppStack = () => {
             ],
           },
         }),
-      }}>
-      <Stack.Screen
-        name="Main"
-        component={MainBottomTab}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen name="Home" component={HomeScreen} />
+      }}
+    >
+      <Stack.Screen name="Main" component={HomeScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
-  );
-};
+  )
+}
