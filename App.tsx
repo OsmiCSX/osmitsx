@@ -36,7 +36,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <AppStack />
-      {Config.SHOW_NETWORK_LOGGER && <NetworkLog />}
+      {Config.SHOW_NETWORK_LOGGER && !__DEV__ && <NetworkLog />}
     </NavigationContainer>
   )
 }

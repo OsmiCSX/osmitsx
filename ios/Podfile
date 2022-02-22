@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'WhistleBlowing' do
+target 'OsmiTsx' do
   config = use_native_modules!
 
   use_react_native!(
@@ -14,7 +14,7 @@ target 'WhistleBlowing' do
 
   pod 'react-native-config', :path => '../node_modules/react-native-config'
 
-  target 'WhistleBlowingTests' do
+  target 'OsmiTsxTests' do
     inherit! :complete
     # Pods for testing
   end
