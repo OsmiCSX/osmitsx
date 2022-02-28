@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "WhistleBlowing.app"
-               BlueprintName = "WhistleBlowing"
-               ReferencedContainer = "container:WhistleBlowing.xcodeproj">
+               BuildableName = "OsmiTsx.app"
+               BlueprintName = "OsmiTsx"
+               ReferencedContainer = "container:OsmiTsx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "WhistleBlowingTests.xctest"
-               BlueprintName = "WhistleBlowingTests"
-               ReferencedContainer = "container:WhistleBlowing.xcodeproj">
+               BuildableName = "OsmiTsxTests.xctest"
+               BlueprintName = "OsmiTsxTests"
+               ReferencedContainer = "container:OsmiTsx.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "WhistleBlowing.app"
-            BlueprintName = "WhistleBlowing"
-            ReferencedContainer = "container:WhistleBlowing.xcodeproj">
+            BuildableName = "OsmiTsx.app"
+            BlueprintName = "OsmiTsx"
+            ReferencedContainer = "container:OsmiTsx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "WhistleBlowing.app"
-            BlueprintName = "WhistleBlowing"
-            ReferencedContainer = "container:WhistleBlowing.xcodeproj">
+            BuildableName = "OsmiTsx.app"
+            BlueprintName = "OsmiTsx"
+            ReferencedContainer = "container:OsmiTsx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

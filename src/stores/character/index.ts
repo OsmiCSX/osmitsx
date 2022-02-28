@@ -1,25 +1,33 @@
 import { useCallback } from "react"
-import { Api } from "@services/api"
+import { atom, useRecoilState, useRecoilValue } from "recoil"
 import { apiConfig } from "@stores/config"
 import { CharacterApi } from "@services/api/character-api"
-import { atom, useAtom } from "jotai"
 import { Character } from "./types"
 
 /**
- * Initial state
+ * Initial State
  */
-const _fetching = atom<boolean>(false)
-const _data = atom<Character[]>([])
-const _error = atom<string>("")
+const _fetching = atom<boolean>({
+  key: "characterFetching",
+  default: false,
+})
+const _data = atom<Character[]>({
+  key: "characterList",
+  default: [],
+})
+const _error = atom<string>({
+  key: "characterError",
+  default: "",
+})
 
 /**
  * Create custom hooks
  */
 export const useCharacters = () => {
-  const [api] = useAtom<Api>(apiConfig)
-  const [fetching, setFetching] = useAtom(_fetching)
-  const [data, setData] = useAtom(_data)
-  const [error, setError] = useAtom(_error)
+  const api = useRecoilValue(apiConfig)
+  const [fetching, setFetching] = useRecoilState(_fetching)
+  const [data, setData] = useRecoilState(_data)
+  const [error, setError] = useRecoilState(_error)
 
   const getCharacters = useCallback(async () => {
     setFetching(true)
@@ -31,11 +39,11 @@ export const useCharacters = () => {
       setData(result.data)
       setFetching(false)
     } else {
-      __DEV__ && console.tron.log(result.kind)
+      __DEV__ && console.tron.log("Error =>", result.kind)
       setError(result.kind)
       setFetching(false)
     }
-  }, [api, setData, setError, setFetching])
+  }, [])
 
   return {
     fetching,

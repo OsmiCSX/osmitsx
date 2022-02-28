@@ -1,4 +1,4 @@
-package com.whistleblowing;
+package com.osmitsx;
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 
@@ -11,7 +11,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "WhistleBlowing";
+    return "OsmiTsx";
   }
   
   @Override
