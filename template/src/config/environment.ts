@@ -21,7 +21,7 @@ export class Environment {
     // allow each service to setup
     if (__DEV__) {
       Tron.configure({
-        host: "192.168.100.94",
+        host: "localhost",
         name: require("../../package.json").name,
       })
         .useReactNative()
